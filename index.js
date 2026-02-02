@@ -29,6 +29,6 @@ app.use("/api/v1",userRouter)
 app.use("/api/v1",sendMail)
 
 
-mongoose.connect("mongodb://localhost:27017/mapdb").then(()=>{
+mongoose.connect(process.env.MONGO_URL).then(()=>{
     app.listen(PORT,()=>console.log(`database connection successfully \n || server is running on the port ${PORT} \n http://localhost:8083`.white.bgGreen))
 }).catch((e)=>console.log(`error in connecting database`.white.bgRed))
